@@ -1,0 +1,31 @@
+
+h2{
+    color: green;
+    font-style: italic;
+}
+
+.names_and_numbers{
+    color:grey;
+    padding-top: 3px;
+    font-size: 15px;
+}
+
+.error{
+    color: red;
+    font-size: 22px;
+    font-family: monospace;
+    background: black;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.notification{
+    color: blue;
+    font-size: 22px;
+    font-family: monospace;
+    background: black;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+}
