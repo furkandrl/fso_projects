@@ -1,13 +1,15 @@
+require('dotenv').config()
+
 const { response } = require('express')
 const express = require('express')
 const morgan = require('morgan')
 const cors=require('cors')
 const app = express()
+const Person=require('./models/person')
 
-app.use(express.json())
-app.use(morgan('dev'))
-app.use(cors())
-app.use(express.static('build'))
+
+
+
 
 let persons = [  
     {
@@ -41,7 +43,20 @@ let persons = [
         "id": 11
       }
     ]
+    
+app.use(express.json())
+app.use(cors())
+app.use(express.static('build'))
 
+const requestLogger = (request, response, next) => {
+    console.log('Method:', request.method)
+    console.log('Path:  ', request.path)
+    console.log('Body:  ', request.body)
+    console.log('---')
+    next()
+  }
+
+app.use(requestLogger)
 
 const generateId=()=>{
     const maxId=persons.length>0
@@ -68,16 +83,19 @@ app.post('/api/persons', (request,response)=>{
         }
     
     
-    const person={
+    const person=new Person({
         name: body.name,
         number: body.number||'no number added',
         id: generateId()
-    }
+    })
 
-    persons=persons.concat(person)
+    persons.save()
+    .then(savedPerson=>{
+        response.json(savedPerson)
+    })
    
     
-    response.json(person)
+    
    
 
 })
@@ -126,7 +144,7 @@ app.delete('/api/persons/:id', (request, response) => {
   app.use(unknownEndpoint)
   
   
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT 
 app.listen(PORT,()=>{
 console.log(`Server running on port ${PORT}`)
 })
