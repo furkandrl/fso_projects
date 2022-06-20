@@ -20,11 +20,11 @@ return (
 const App =(props)=> {
   const[persons, setPersons]=useState([])
   const [newName, setNewName]=useState(
-    'at least 3 characters'
+    ''
   )
 
   const [newNumber, setNewNumber]=useState(
-    'at least 8 characters'
+    ''
   )
 
   const [filter, setFilter] = useState(

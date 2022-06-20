@@ -6,11 +6,11 @@ newNumber, handleAddNumber})=>{
 return(
 <form onSubmit={addPerson}>
 <div>
-  name: <input value={newName}
+  name: <input value={newName} placeholder="at least 3 characters"
          onChange={handleAddName} />
 </div>
 <div>
-  number: <input value={newNumber}
+  number: <input value={newNumber} placeholder="at least 8 characters"
           onChange={handleAddNumber}/>
 </div>
 <div>
