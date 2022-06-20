@@ -20,11 +20,11 @@ return (
 const App =(props)=> {
   const[persons, setPersons]=useState([])
   const [newName, setNewName]=useState(
-    ''
+    'at least 3 characters'
   )
 
   const [newNumber, setNewNumber]=useState(
-    ''
+    'at least 8 characters'
   )
 
   const [filter, setFilter] = useState(
@@ -99,7 +99,12 @@ const App =(props)=> {
         setNewName('')
         setNewNumber('') 
   }).catch(error => {
-    setNotificationMessage(error.response.data.error)
+    setNotificationMessage({
+      "text": ` ${error.response.data.error}`,
+      "type": "error"
+  })
+      
+  
     setTimeout(() => {
         setNotificationMessage(null)    
     }, 5000)
@@ -163,11 +168,11 @@ const App =(props)=> {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h1>Phonebook</h1>
 
       <Filter handleFilter={handleFilter} />
       
-      <h1>Add a new person</h1>
+      <h2>Add a new person</h2>
       <PersonForm 
       addPerson={addPerson}
       newName={newName}
@@ -176,7 +181,7 @@ const App =(props)=> {
       handleAddNumber={handleAddNumber}
       />
       <Notification message={notificationMessage}/>
-      <h2>Numbers</h2>
+      <h1>Numbers</h1>
       
       <Persons persons={persons} filter={filter} deletePerson={deletePerson}/>
     <Footer/>

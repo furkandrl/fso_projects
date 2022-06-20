@@ -7,10 +7,13 @@ if (process.argv.length < 3) {
 
 const password = process.argv[2]
 
-const url = `mongodb+srv://fso_projects:${password}@cluster0.luja6.mongodb.net/noteApp?retryWrites=true&w=majority`
+const url = `mongodb+srv://fso_projects:${password}@cluster0.luja6.mongodb.net/phonebookApp?retryWrites=true&w=majority`
 
 
-
+const personSchema = new mongoose.Schema({
+    name: String,
+    number: String
+  })
 const Person = mongoose.model('Person', personSchema)
 
     

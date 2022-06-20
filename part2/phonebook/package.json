@@ -11,6 +11,7 @@
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+    
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,12 +20,14 @@
     "eject": "react-scripts eject",
     "server": "json-server -p3001 --watch db.json"
   },
+  "proxy": "http://localhost:3000",
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
+  
   "browserslist": {
     "production": [
       ">0.2%",
