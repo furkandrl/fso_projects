@@ -1,0 +1,24 @@
+
+.error{
+    color: red;
+    font-size: 20px;
+    font-family: monospace;
+    background: black;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 5px;
+}
+
+.notification{
+    color: blue;
+    font-size: 20px;
+    font-family: monospace;
+    background: black;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 5px;
+}

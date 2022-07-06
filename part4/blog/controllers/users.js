@@ -6,7 +6,7 @@ usersRouter.post('/', async (request, response) => {
   const { username, name, password } = request.body
 
   
-  var passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
+  var passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\.])(?=.{8,})")
 
   if(username.length<3 || name.length<3){
     return response.status(400).json({      
